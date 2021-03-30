@@ -11,7 +11,7 @@ import {
 
 import { icons, images, SIZES, COLORS, FONTS } from '../constants'
 
-const Home = () => {
+const Home = ({ navigation }) => {
   // Dummy Datas
 
   const initialCurrentLocation = {
@@ -338,6 +338,16 @@ const Home = () => {
     setSelectedCategory(category);
   }
 
+  function getCategoryNameById(id) {
+    let category = categories.filter(a => a.id == id);
+
+    if (category.length > 0) {
+      return category[0].name;
+    }
+
+    return '';
+  }
+
   function renderHeader() {
     return (
       <View style={{ flexDirection: 'row', height: 50 }}>
@@ -462,9 +472,13 @@ const Home = () => {
     const renderItem = ({ item }) => (
       <TouchableOpacity
         style={{ marginBottom: SIZES.padding * 2 }}
-        onPress={() => {}}
+        onPress={() => navigation.navigate('Restaurant', {
+          item,
+          currentLocation
+        })}
       >
-        <View>
+        {/* Restaurant Image */}
+        <View style={{ marginBottom: SIZES.padding }}>
           <Image 
             source={item.photo}
             resizeMode='cover'
@@ -474,6 +488,88 @@ const Home = () => {
               borderRadius: SIZES.radius
             }}
           />
+
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              height: 50,
+              width: SIZES.width * 0.3,
+              backgroundColor: COLORS.white,
+              borderTopRightRadius: SIZES.radius,
+              borderBottomLeftRadius: SIZES.radius,
+              alignItems: 'center',
+              justifyContent: 'center',
+              ...styles.shadow
+            }}
+          >
+            <Text style={{ ...FONTS.h4 }}>
+              { item.duration }
+            </Text>
+          </View>
+        </View>
+
+        {/* Restaurant Info */}
+        <Text style={{ ...FONTS.body2, marginBottom: 10 }}>{ item.name }</Text>
+        <View
+          style={{
+            marginTop: SIZES.padding,
+            flexDirection: 'row',
+          }}
+        >
+          {/* Rating */}
+          <Image 
+            source={icons.star}
+            style={{
+              height: 20,
+              width: 20,
+              tintColor: COLORS.primary,
+            }}
+          />
+          <Text style={{ ...FONTS.body3, marginLeft: 10 }}>
+            { item.rating }
+          </Text>
+
+          {/* Categories */}
+          <View
+            style={{
+              flexDirection: 'row',
+              marginLeft: 10
+            }}
+          >
+            {item.categories.map((categoryId) => {
+              return (
+                <View
+                  style={{ flexDirection: 'row' }}
+                  key={categoryId}
+                >
+                  <Text style={{ ...FONTS.body3 }}>
+                    {getCategoryNameById(categoryId)}
+                  </Text>
+                  <Text style={{ 
+                    ...FONTS.h3, 
+                    color: COLORS.darkgray, 
+                    marginTop: -4
+                  }}> . </Text>
+                </View>
+              )
+            })}
+
+            {/* Price */}
+            {
+              [1, 2, 3].map((priceRating) => (
+                <Text
+                  key={priceRating}
+                  style={{ 
+                    ...FONTS.body3, 
+                    color: (priceRating <= item.priceRating)
+                      ? COLORS.black
+                      : COLORS.darkgray
+                  }}
+                >$</Text>
+              ))
+            }
+          </View>
         </View>
       </TouchableOpacity>
     );

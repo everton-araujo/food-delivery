@@ -40,7 +40,7 @@ export const SIZES = {
 
   // app dimensions
   width,
-  height,,
+  height,
 };
 
 export const FONTS = {

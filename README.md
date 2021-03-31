@@ -17,8 +17,8 @@ This application was created [coding along](https://www.byprogrammers.com/2020/1
 * With the android simulator running. Run the application: ```yarn android```;
 
 ### TODO
-* Refactor using styled components;
-* Remove the dummy data and fetch an API;
-* Create the order functionality;
-* Include a map on order page;
-* Convert to typescript;
+* [in progress] Refactor using styled components; 
+* [] Remove the dummy data and fetch an API;
+* [] Create the order functionality;
+* [] Include a map on order page;
+* [] Convert to typescript;

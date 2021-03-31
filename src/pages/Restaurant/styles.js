@@ -121,3 +121,78 @@ export const Calories = styled.Text`
   font-size: 16px;
   color: #898C95;
 `;
+
+export const DotContainer = styled.View`
+  height: 30px;
+`;
+
+export const Dots = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 10px;
+`;
+
+export const OrderBackground = styled.View`
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  background: #FFF;
+`;
+
+export const OrderCartItems = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom-color: #F6F6F7;
+  border-bottom-width: 1.5px;
+`;
+
+export const OrderCartItemsText = styled.Text`
+  font-size: 20px;
+  line-height: 22px;
+  margin-left: 10px;
+`;
+
+export const OrderLocationCreditCardSection = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+`;
+
+export const LocationCreditCardText = styled.Text`
+  margin-left: 10px;
+  margin-top: -3px;
+  font-size: 18px;
+`;
+
+export const OrderButton = styled.TouchableOpacity`
+  width: ${width * 0.9}px;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 30px;
+  background: #FC6D3F;
+`;
+
+export const OrderButtonText = styled.Text`
+  font-size: 22px;
+  line-height: 30px;
+  color: #FFF;
+`;
+
+export const IphoneView = styled.View`
+  position: absolute;
+  bottom: -34px;
+  left: 0px;
+  right: 0px;
+  height: 34px;
+  background: #FFF;
+`;

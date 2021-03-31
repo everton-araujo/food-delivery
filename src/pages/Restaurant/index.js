@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
-  TouchableOpacity,
   Image,
   Animated
 } from 'react-native';
@@ -31,7 +30,17 @@ import {
   FoodNamePrice,
   CaloriesSection,
   CaloriesImage,
-  Calories
+  Calories,
+  DotContainer,
+  Dots,
+  OrderBackground,
+  OrderCartItems,
+  OrderCartItemsText,
+  OrderLocationCreditCardSection,
+  LocationCreditCardText,
+  OrderButton,
+  OrderButtonText,
+  IphoneView
 } from './styles';
 
 const Restaurant = ({ route, navigation }) => {
@@ -193,15 +202,8 @@ const Restaurant = ({ route, navigation }) => {
     const dotPosition = Animated.divide(scrollX, SIZES.width);
 
     return (
-      <View style={{ height: 30 }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: SIZES.padding
-          }}
-        >
+      <DotContainer>
+        <Dots>
           {restaurant?.menu.map((item, index) => {
             const opacity = dotPosition.interpolate({
               inputRange: [index - 1, index, index + 1],
@@ -235,61 +237,33 @@ const Restaurant = ({ route, navigation }) => {
               />
             );
           })}
-        </View>
-      </View>
+        </Dots>
+      </DotContainer>
     );
   }
 
   function renderOrder() {
     return (
       <View>
-        {
-          renderDots()
-        }
-        <View 
-          style={{
-            backgroundColor: COLORS.white,
-            borderTopLeftRadius: 40,
-            borderToRightRadius: 40
-          }}
-        >
-          <View 
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingVertical: SIZES.padding * 2,
-              paddingHorizontal: SIZES.padding * 3,
-              borderBottomColor: COLORS.lightGray2,
-              borderBottomWidth: 1
-            }}
-          >
-            <Text style={{ ...FONTS.h3 }}>{getBasketItemCount()} items in cart</Text>
-            <Text style={{ ...FONTS.h3 }}>${sumOrder()}</Text>
-          </View>
+        {renderDots()}
 
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingVertical: SIZES.padding * 2,
-              paddingHorizontal: SIZES.padding * 3
-            }}
-          >
+        <OrderBackground>
+          <OrderCartItems>
+            <OrderCartItemsText>{getBasketItemCount()} items in cart</OrderCartItemsText>
+            <OrderCartItemsText>${sumOrder()}</OrderCartItemsText>
+          </OrderCartItems>
+
+          <OrderLocationCreditCardSection>
             <View style={{ flexDirection: 'row' }}>
               <Image 
                 source={icons.pin}
-                resizeMode='contain'
                 style={{
                   width: 20,
                   height: 20,
                   tintColor: COLORS.darkgray
                 }}
               />
-              <Text 
-                style={{ 
-                  marginLeft: SIZES.padding, 
-                  ...FONTS.h4,
-                }}>Location</Text>
+              <LocationCreditCardText>Location</LocationCreditCardText>
             </View>
 
             <View style={{ flexDirection: 'row'}}>
@@ -302,11 +276,9 @@ const Restaurant = ({ route, navigation }) => {
                     tintColor: COLORS.darkgray
                   }}
                 />
-                <Text style={{ marginLeft: SIZES.padding, ...FONTS.h4 }}>
-                  8888
-                </Text>
+                <LocationCreditCardText>8888</LocationCreditCardText>
             </View>
-          </View>
+          </OrderLocationCreditCardSection>
 
           {/* Order Button */}
           <View
@@ -316,39 +288,22 @@ const Restaurant = ({ route, navigation }) => {
               justifyContent: 'center'
             }}
           >
-            <TouchableOpacity
+            <OrderButton
               onPress={() => navigation.navigate('OrderDelivery', {
                 restaurant: restaurant,
                 currentLocation: currentLocation
               })}
-              style={{
-                width: SIZES.width * 0.9,
-                padding: SIZES.padding,
-                backgroundColor: COLORS.primary,
-                alignItems: 'center',
-                borderRadius: SIZES.radius
-              }}
             >
-              <Text style={{ color: COLORS.white, ...FONTS.h2}}>Order</Text>
-            </TouchableOpacity>
+              <OrderButtonText>Order</OrderButtonText>
+            </OrderButton>
           </View>
-        </View>
+        </OrderBackground>
 
-        {isIphoneX() && 
-          <View
-            style={{
-              position: 'absolute',
-              bottom: -34,
-              left: 0,
-              right: 0,
-              height: 34,
-              backgroundColor: COLORS.white
-            }}
-          >
-          </View>
+        {
+          isIphoneX() && <IphoneView></IphoneView>
         }
       </View>
-    )
+    );
   }
 
   return (

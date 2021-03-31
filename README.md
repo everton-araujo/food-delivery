@@ -4,7 +4,7 @@ Application created using React Native.
 
 ![Doom's Fire](./src/assets/application.gif)
 
-This application was created coding along with [ByProgrammers](https://www.byprogrammers.com/2020/12/lcrn-ep8-food-delivery-app/) and uses dummy data.
+This application was created [coding along](https://www.byprogrammers.com/2020/12/lcrn-ep8-food-delivery-app/) with [ByProgrammers](https://www.byprogrammers.com/) and uses dummy data.
 
 ### How to run on Android simulator
 

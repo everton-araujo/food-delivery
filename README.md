@@ -9,10 +9,8 @@ This application was created coding along with [ByProgrammers](https://www.bypro
 ### How to run on Android simulator
 
 * Clone the repository: ```git clone https://github.com/everton-araujo/food-delivery.git```;
-</Br>
 
 * On project folder, download the dependencies: ```yarn``` or ```npm install```;
-</Br>
 
 * With the android simulator running. Run the application: ```yarn android```;
 

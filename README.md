@@ -2,7 +2,9 @@
 
 Application created using React Native.
 
-![Doom's Fire](./src/assets/application.gif)
+<p align="center">
+<img src="./src/assets/application.gif" alt="Application demonstration" width="300" height="650"/>
+</p>
 
 This application was created [coding along](https://www.byprogrammers.com/2020/12/lcrn-ep8-food-delivery-app/) with [ByProgrammers](https://www.byprogrammers.com/) and uses dummy data.
 

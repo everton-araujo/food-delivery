@@ -10,8 +10,10 @@ This application was created coding along with [ByProgrammers](https://www.bypro
 
 * Clone the repository: ```git clone https://github.com/everton-araujo/food-delivery.git```;
 </Br>
+
 * On project folder, download the dependencies: ```yarn``` or ```npm install```;
-</br>
+</Br>
+
 * With the android simulator running. Run the application: ```yarn android```;
 
 ### TODO

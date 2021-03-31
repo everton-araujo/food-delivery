@@ -89,7 +89,7 @@ const Restaurant = ({ route, navigation }) => {
   }
 
   function getOrderQuantity(menuId) {
-    let orderItem = orderItems.filter(a => a.menuId);
+    let orderItem = orderItems.filter(a => a.menuId == menuId);
 
     if (orderItem.length > 0) {
       return orderItem[0].quantity;

@@ -4,7 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 import Tabs from './src/navigation/tabs';
-import { Home, Restaurant, OrderDelivery } from "./src/pages";
+import Restaurant from './src/pages/Restaurant/index.js';
+import { OrderDelivery } from "./src/pages";
 
 const Stack = createStackNavigator();
 

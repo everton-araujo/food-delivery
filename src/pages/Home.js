@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
   // Dummy Datas
 
   const initialCurrentLocation = {
-    streetName: "Kuching",
+    streetName: "Current Location",
     gps: {
       latitude: 1.5496614931250685,
       longitude: 110.36381866919922
@@ -109,9 +109,9 @@ const Home = ({ navigation }) => {
         },
         {
           menuId: 2,
-          name: "Crispy Chicken Burger with Honey Mustard",
+          name: "Crispy Chicken Burger Honey",
           photo: images.honey_mustard_chicken_burger,
-          description: "Crispy Chicken Burger with Honey Mustard Coleslaw",
+          description: "Crispy Chicken Burger with Honey Mustard",
           calories: 250,
           price: 15
         },
